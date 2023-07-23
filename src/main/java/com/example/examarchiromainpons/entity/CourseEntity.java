@@ -29,4 +29,5 @@ public class CourseEntity {
 
     @Column(name = "distance")
     private float distance;
+
 }
