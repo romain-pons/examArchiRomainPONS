@@ -30,4 +30,53 @@ public class CourseEntity {
     @Column(name = "distance")
     private float distance;
 
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public UtilisateurEntity getClient() {
+        return client;
+    }
+
+    public void setClient(UtilisateurEntity client) {
+        this.client = client;
+    }
+
+    public UtilisateurEntity getChauffeur() {
+        return chauffeur;
+    }
+
+    public void setChauffeur(UtilisateurEntity chauffeur) {
+        this.chauffeur = chauffeur;
+    }
+
+    public LocalDate getDateCourse() {
+        return dateCourse;
+    }
+
+    public void setDateCourse(LocalDate dateCourse) {
+        this.dateCourse = dateCourse;
+    }
+
+    public int getTempsTrajet() {
+        return tempsTrajet;
+    }
+
+    public void setTempsTrajet(int tempsTrajet) {
+        this.tempsTrajet = tempsTrajet;
+    }
+
+    public float getDistance() {
+        return distance;
+    }
+
+    public void setDistance(float distance) {
+        this.distance = distance;
+    }
+
+
 }
