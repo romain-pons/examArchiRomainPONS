@@ -151,15 +151,15 @@ public class UtilisateurController {
 
     @GetMapping("/countByType")
     public Map<String, Long> countUsersByType() {
-        List<UtilisateurEntity> users = serviceClient.getAllUsers();
-        // Check si des users n'existent pas en DB
+        List<UtilisateurEntity> utilisateurs = serviceClient.getAllUsers();
+        // Check si des utilisateurs n'existent pas en DB
         if(serviceClient.getAllUsers() == null ) {
             return null;
         }
         Map<String, Long> counts = new HashMap<>();
-        // Pour chaque users, on additionne la quantité de types enregistrés en DB
-        for (UtilisateurEntity user : users) {
-            String type = user.getType().toString();
+        // Pour chaque utilisateurs, on additionne la quantité de types enregistrés en DB
+        for (UtilisateurEntity utilisateur : utilisateurs) {
+            String type = utilisateur.getType().toString();
             Long count = counts.getOrDefault(type, 0L);
             counts.put(type, count + 1);
         }

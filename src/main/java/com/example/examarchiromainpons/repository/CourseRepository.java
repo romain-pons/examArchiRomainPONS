@@ -26,7 +26,7 @@ public interface CourseRepository extends JpaRepository<CourseEntity, Long> {
     // Additionne les distances parcourues des chauffeurs,
     // en regroupant leurs infos + en limitant la requête à 3 réponses
     @Query("SELECT u, SUM(c.distance) as totalDistance " +
-            "FROM UserEntity u " +
+            "FROM UtilisateurEntity u " +
             "JOIN CourseEntity c ON u.ID = c.chauffeur.ID " +
             "WHERE u.type = 'chauffeur_voiture' OR u.type = 'motard' " +
             "GROUP BY u.ID, u.nom, u.prenom, u.dateNaissance, u.dateInscription, u.type " +
