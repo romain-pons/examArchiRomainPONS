@@ -25,28 +25,13 @@ public class UtilisateurController {
 
     /**
      * Ajoute un utilisateur dans la DB
-     *
-     * Exemple de test:
-     * Méthode: POST
-     * URL: http://localhost:8080/users/add
-     * Body:
-     * {
-     *     "nom": "DUPAUL",
-     *     "prenom": "Jean-Pierre",
-     *     "dateNaissance" : "2002-02-02",
-     *     "dateInscription": "2023-02-02",
-     *     "type": "client"
-     * }
-     *
-     * Résultat: true
-     *
      * @param dto UserDto
      * @return
      */
     @PostMapping("add")
     public ResponseEntity<Boolean> ajouterUtilisateur(@RequestBody UtilisateurDto dto){
 
-        // checker si le mail n'existe pas deja
+        // checker si l'utilisateur n'existe pas deja
         if (serviceClient.exist(dto.getID())){
             return new ResponseEntity("le client existe deja", HttpStatus.BAD_REQUEST);
         }
@@ -76,29 +61,6 @@ public class UtilisateurController {
 
     /**
      * Permet de récupérer la liste des utilisateurs existants dans la base de données
-     *
-     * Exemple de test (avec deux utilisateurs en DB) :
-     * Méthode: GET
-     * URL: localhost:8080/users/listUsers
-     * Résultat:
-     * [
-     *     {
-     *         "nom": "Dupont",
-     *         "prenom": "Jean",
-     *         "dateNaissance": "1985-05-15",
-     *         "dateInscription": "2023-07-19",
-     *         "type": "client",
-     *         "id": 1
-     *     },
-     *     {
-     *         "nom": "RAYNAUD",
-     *         "prenom": "Nicolas",
-     *         "dateNaissance": "2003-02-04",
-     *         "dateInscription": "2022-02-02",
-     *         "type": "client",
-     *         "id": 2
-     *     }
-     * ]
      * @return Array d'objet contenant la liste des utilisateurs enregistrés dans la DB
      */
     @GetMapping("/listUsers")
@@ -108,23 +70,7 @@ public class UtilisateurController {
 
     /**
      * Récupère les données d'un utilisateur en fonction de son ID
-     *
-     * Exemple de test:
-     *      Méthode: GET
-     *      URL: http://localhost:8080/users/findUser/1
-     *      Résultat:
-     *      {
-     *        "nom": "Dupont",
-     *        "prenom": "Jean",
-     *        "dateNaissance": "1985-05-15",
-     *        "dateInscription": "2023-07-19",
-     *        "type": "client",
-     *         "id": 1
-     *      * }
-     *
      * @param id ID de l'utilisateur (en DB)
-     *
-     *
      * @return Objet contenant les données de l'utilisateur en question
      */
     @GetMapping("/findUser/{id}")
@@ -134,12 +80,6 @@ public class UtilisateurController {
 
     /**
      * Supprime un utilisateur en fonction de son ID
-     *
-     * Exemple de test:
-     * Méthode: DELETE
-     * URL: http://localhost:8080/users/deleteUser/3
-     * Résultat: Code 200 (OK)
-     *
      * @param id ID de l'utilisateur
      */
     @DeleteMapping("/deleteUser/{id}")

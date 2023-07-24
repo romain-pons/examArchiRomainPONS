@@ -27,19 +27,6 @@ public class CourseController {
     /**
      * Récupère le nombre de courses et la distance, ainsi que le nom du Client
      * En fonction de son ID
-     *
-     * Exemple de test:
-     * Méthode: GET
-     * URL: http://localhost:8080/courses/client/1/summary
-     *
-     * Résultat:
-     * {
-     *     "clientName": "Dupont Jean",
-     *     "distance": 520.0,
-     *     "nbCourses": 4,
-     *     "id": 0
-     * }
-     *
      * @param clientId ID du Client
      * @return CourseDto
      */
@@ -76,27 +63,6 @@ public class CourseController {
 
     /**
      * Récupère les trois meilleurs chauffeurs en fonction de la distance parcourue
-     * Méthode: GET
-     * URL: http://localhost:8080/courses/top3
-     * Résultat:
-     * [
-     *     {
-     *         "nom": "AA",
-     *         "prenom": "A",
-     *         "distance": 300.0
-     *     },
-     *     {
-     *         "nom": "BB",
-     *         "prenom": "BB",
-     *         "distance": 100.0
-     *     },
-     *     {
-     *         "nom": "DUPAUL",
-     *         "prenom": "Jean-Pierre",
-     *         "distance": 100.0
-     *     }
-     * ]
-     *
      * @return
      */
     @GetMapping("/top3")
